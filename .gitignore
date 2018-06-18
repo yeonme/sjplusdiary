@@ -1,0 +1,6 @@
+/vendor/
+/.sass-cache/
+/node_modules/
+/fonts/
+/semantic/src/
+/semantic/tasks/

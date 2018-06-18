@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/*!  
+*   JB STYLE - Common
+*/
+
+html,
+body {
+  @include font-main;
+}
+
+.jb-font {
+  @include font-main;
+}
+
+.simplebar-scrollbar:before {
+  background: #5e9994;
+}
+
+.jb-color-mint {
+  color: #3ebcb2;
+}
