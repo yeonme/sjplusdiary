@@ -1,6 +1,16 @@
 /*
   새로운 CSS는 여기에!
 */
+.jb-calendar {
+  width: 230px;
+}
+.jb-calendar .jb-calendar-widget {
+  width: 230px;
+}
+.jb-sidebar {
+  width: 300px;
+}
+
 .jb-calendar .jb-calendar-checkbox {
   opacity: 0;
 }
