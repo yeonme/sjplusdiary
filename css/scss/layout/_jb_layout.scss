@@ -442,7 +442,7 @@ $layout-footer-height: 36px; //푸터 높이
     height: 100%;
     padding-top: #{($layout-content-padding)};
     padding-bottom: #{($layout-content-padding)};
-    padding-right: 22px;
+    // padding-right: 22px;
 
     // ~~~~~ RESPONSIVE ~~~~~
     @include res__tablet {

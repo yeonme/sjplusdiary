@@ -69,8 +69,8 @@ session_start();
     </section>
     <section class=" jb-contents jb-font ">
       <div class="jb-scroll-area " data-simplebar="init ">
-        <div class="jb-scroll-contents " id="contentArea" style="min-height:100%; background-color:cyan; position:fixed;">
-          Why not?!
+        <div class="jb-scroll-contents " id="contentArea" style="min-height:100%; background-color:cyan;">
+          All right?
           <?php /*
 <div class="delete_me_plase " style="color: #333; font-weight: 300; font-size:14px; line-height:180%; word-break:
 keep-all; ">
