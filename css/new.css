@@ -1,16 +1,57 @@
 /*
   새로운 CSS는 여기에!
 */
-.jb-calendar {
-  width: 230px;
-}
-.jb-calendar .jb-calendar-widget {
-  width: 230px;
-}
-.jb-sidebar {
-  width: 300px;
+.calendar {
+  margin: 0em;
+  margin-top: 1em;
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 5px;
 }
 
-.jb-calendar .jb-calendar-checkbox {
-  opacity: 0;
+.calendar thead {
+  border-bottom: 1px solid #eee;
+  background-color: #eee;
+}
+
+.calendar thead th:nth-child(1),
+.calendar .holiday {
+  color: red;
+}
+
+.calendar a {
+  color: inherit;
+  padding: 5px;
+  padding-bottom: 20px;
+}
+
+.calendar .today {
+  background-color: #eee;
+}
+
+.calendar td {
+  padding-bottom: 15px;
+}
+
+.title {
+  vertical-align: top;
+}
+
+.title #readonlyTitle {
+  display: inline;
+}
+
+.title #titleEdit {
+  border: none;
+  border-bottom: 1px solid #eee;
+  display: block;
+  box-sizing: padding-box;
+  overflow: hidden;
+  padding: 10px;
+  width: 100%;
+  font-size: 30px;
+  margin: 50px auto;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px rgba(black, 0.3);
+  border: 0;
 }
