@@ -34,7 +34,12 @@ echo $tmpdate->format('Y');?>,<?php echo $tmpdate->format('m'); ?>);">
         </button>
     </div>
 </div>
-<table class="ui compact small celled table single line" style="max-width:85%;">
+<script>
+function onDay(day){
+    openDay(<?php echo intval($date->format('Y')); ?>,<?php echo intval($date->format('m')); ?>,day);
+}
+</script>
+<table class="calendar">
     <thead class="full-width">
         <tr><th>S</th>
         <th>M</th>
@@ -61,7 +66,7 @@ for ($i = 1; $i <= $lastday; $i++) { //1부터 막날까지 채우기
     if ($tdow == 0) {
         echo "<tr>";
     }
-    echo "<td class=\"" . ($tdow == 0 ? 'warning ' : '') . ($i == $is_today ? 'today active ' : '') . "\">" . $i . "</td>";
+    echo "<td class=\"" . ($tdow == 0 ? 'holiday ' : '') . ($i == $is_today ? 'today ' : '') . "\"><a href=\"javascript:\" onclick=\"onDay(" . $i . ");\">" . $i . "</a></td>";
     $tdow++;
     if ($tdow >= 7) {
         echo "</tr>";

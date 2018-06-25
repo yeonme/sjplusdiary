@@ -69,7 +69,7 @@ session_start();
     </section>
     <section class=" jb-contents jb-font ">
       <div class="jb-scroll-area " data-simplebar="init ">
-        <div class="jb-scroll-contents " id="contentArea" style="min-height:100%; background-color:cyan;">
+        <div class="jb-scroll-contents " id="contentArea" style="min-height:100%;">
           All right?
           <?php /*
 <div class="delete_me_plase " style="color: #333; font-weight: 300; font-size:14px; line-height:180%; word-break:
@@ -144,10 +144,33 @@ keep-all; ">
       });
     }
     function cloadFinish(){
+      $(document)
+        .one('focus.autoExpand', 'textarea.autoExpand', function(){
+            var savedValue = this.value;
+            this.value = '';
+            this.baseScrollHeight = this.scrollHeight;
+            this.value = savedValue;
+        })
+        .on('input.autoExpand', 'textarea.autoExpand', function(){
+            var minRows = this.getAttribute('data-min-rows')|0, rows;
+            this.rows = minRows;
+            rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
+            this.rows = minRows + rows;
+        });
       $('#summernote').summernote({
-        height: '100%'
-        ,focus: true
+        focus: true,
+        toolbar: [
+          // [groupName, [list of button]]
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', ['strikethrough', 'superscript', 'subscript']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']],
+          ['link']
+        ]
       });
+
     }
     $(function(){
       calGo();
