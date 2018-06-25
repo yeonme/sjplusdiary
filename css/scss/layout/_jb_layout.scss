@@ -9,13 +9,16 @@ $layout-header-height: 52px; //헤더 높이
 $layout-header-padding: 20px; //헤더 양옆 공백 너비
 
 // >> 메인 관련
-$layout-sidebar-width: 250px; //사이드바 너비
+$layout-sidebar-width: 300px; //사이드바 너비
 $layout-content-padding: 40px; //컨텐츠 위아래옆 공백 너비
 $layout-csidebar-height-ta: 80px; //태블릿 사이드바 높이
 $layout-csidebar-height-mo: 65px; //모바일 사이드바 높이
 
 // >> 푸터 관련
 $layout-footer-height: 36px; //푸터 높이
+
+// >> ㅋ캘린더 관련
+$layout-calendar-width: 230px;
 
 // ===============
 // jb-header
@@ -323,7 +326,7 @@ $layout-footer-height: 36px; //푸터 높이
 // jb-calendar
 // ===============
 .jb-calendar {
-  width: 200px;
+  width: $layout-calendar-width;
   margin: 0 auto;
 
   // ~~~~~ RESPONSIVE ~~~~~
@@ -356,6 +359,8 @@ $layout-footer-height: 36px; //푸터 높이
     width: 0;
     height: 0;
     overflow: hidden;
+		opacity: 0;
+		visibility: hidden;
 
     // ~~~~~ RESPONSIVE ~~~~~
     @include res__tablet {
@@ -368,7 +373,7 @@ $layout-footer-height: 36px; //푸터 높이
   }
   .jb-calendar-widget {
     ///////임시스타일링/////////
-    width: 200px;
+    width: $layout-calendar-width;
     // ~~~~~ RESPONSIVE ~~~~~
     @include res__tablet {
       display: none;
@@ -442,7 +447,7 @@ $layout-footer-height: 36px; //푸터 높이
     height: 100%;
     padding-top: #{($layout-content-padding)};
     padding-bottom: #{($layout-content-padding)};
-    padding-right: 22px;
+    // padding-right: 22px;
 
     // ~~~~~ RESPONSIVE ~~~~~
     @include res__tablet {
