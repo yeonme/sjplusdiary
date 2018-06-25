@@ -70,7 +70,7 @@ session_start();
     <section class=" jb-contents jb-font ">
       <div class="jb-scroll-area " data-simplebar="init ">
         <div class="jb-scroll-contents " id="contentArea" style="min-height:100%;">
-          All right?
+          Loading...
           <?php /*
 <div class="delete_me_plase " style="color: #333; font-weight: 300; font-size:14px; line-height:180%; word-break:
 keep-all; ">
@@ -154,28 +154,45 @@ keep-all; ">
         .on('input.autoExpand', 'textarea.autoExpand', function(){
             var minRows = this.getAttribute('data-min-rows')|0, rows;
             this.rows = minRows;
-            rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
+            rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 20);
             this.rows = minRows + rows;
         });
+        var changedCallback = null;
       $('#summernote').summernote({
         focus: true,
         toolbar: [
           // [groupName, [list of button]]
           ['style', ['bold', 'italic', 'underline', 'clear']],
-          ['font', ['strikethrough', 'superscript', 'subscript']],
+          ['font', ['style','fontname','strikethrough', 'superscript', 'subscript']],
           ['fontsize', ['fontsize']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
           ['height', ['height']],
-          ['link']
-        ]
+          ['link'],
+          ['picture'],
+          ['table'],
+          ['hr'],
+          ['misc',['codeview']]
+        ],
+        callbacks: {
+          onChange: function(contents, $editable) {
+            //console.log('onChange:', contents, $editable);
+            if(typeof changedCallback != 'undefined' && changedCallback > 0){
+              window.clearTimeout(changedCallback);
+            }
+            changedCallback=setTimeout(() => {
+              console.log('onChange:', contents, $editable);
+            }, 1000);
+          }
+        },
+        placeholder: 'Place your context...'
       });
 
     }
     $(function(){
       calGo();
       var date = new Date();
-      openDay(date.getFullYear(),date.getMonth()+1,date.getDay());
+      openDay(date.getFullYear(),date.getMonth()+1,date.getDate());
     });
   </script>
 

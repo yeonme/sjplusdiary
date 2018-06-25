@@ -35,9 +35,10 @@
 
 .title {
   vertical-align: top;
+  padding: 0px;
 }
 
-.title #readonlyTitle {
+.title h1 {
   display: inline;
 }
 
@@ -50,7 +51,7 @@
   padding: 10px;
   width: 100%;
   font-size: 30px;
-  margin: 50px auto;
+  margin: 5px auto;
   border-radius: 6px;
   box-shadow: 2px 2px 8px rgba(black, 0.3);
   border: 0;

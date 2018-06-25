@@ -1,37 +1,27 @@
 <?php
-
+require_once "inc.php";
+$y = $_GET["y"];
+$m = $_GET["m"];
+$d = $_GET["d"];
+$datefrom = $y . "-" . $m . "-" . $d;
+$dateto = $y . "-" . $m . "-" . ($d + 1);
+if ($result = $dbcon->query("select * from sj_diary where date >= '" . $datefrom . "' and date < '" . $dateto . "'") && $result->num_rows > 0) {
+    /* fetch object array */
+    while ($row = $result->fetch_row()) {
+        printf("%s (%s)\n", $row[0], $row[1]);
+    }
+} else {
+    mysqli_close($dbcon);
+    header("Location: edit.php?y=" . $y . "&m=" . $m . "&d=" . $d);
+    exit;
+}
+$title = "";
+$body = "";
 ?>
 <div class="title">
-  <h1 id="readonlyTitle">타이포그래피에 대한 고민.</h1>
-  <textarea id="titleEdit" rows='1' data-min-rows='1' placeholder='Title' class="autoExpand"></textarea>
+  <h1 id="readonlyTitle"><?php echo $title; ?></h1>
 </div>
 <div id="readonlynote">
-
+<?php echo $body; ?>
 </div>
-<div id="writablenote">
-<div id="summernote" style="height:100%;">Hello Summernote</div><?php /*
-<div class="ui grid" style="min-height:100%;">
-<div class="twelve wide stretched column" style="height:100%;">
-<div class="ui segment" style="height:100%;">
-
-</div>
-</div>
-<div class="four wide column">
-<div class="ui vertical fluid right tabular menu">
-<a class="item">
-Bio
-</a>
-<a class="item">
-Pics
-</a>
-<a class="item active">
-Companies
-</a>
-<a class="item">
-Links
-</a>
-</div>
-</div>
-</div>*/?>
-</div>
-<script>cloadFinish();</script>
+<?php mysqli_close($dbcon);?>
